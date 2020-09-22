@@ -13,8 +13,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        formatter.dateFormat = "yyyy-MM-dd"
+        
+        APIManager.shared.getMovies(order: .reservationRate, completion: {
+            result in
+            print(result)
+            print(result)
+        })
     }
-
-
 }
-

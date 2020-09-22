@@ -3,18 +3,21 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		24DDFAD02519FF09004A2062 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DDFACF2519FF09004A2062 /* AppDelegate.swift */; };
-		24DDFAD22519FF09004A2062 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DDFAD12519FF09004A2062 /* SceneDelegate.swift */; };
 		24DDFAD42519FF09004A2062 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DDFAD32519FF09004A2062 /* ViewController.swift */; };
 		24DDFAD72519FF09004A2062 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24DDFAD52519FF09004A2062 /* Main.storyboard */; };
 		24DDFAD92519FF0B004A2062 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24DDFAD82519FF0B004A2062 /* Assets.xcassets */; };
 		24DDFADC2519FF0B004A2062 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24DDFADA2519FF0B004A2062 /* LaunchScreen.storyboard */; };
 		24DDFAE72519FF0B004A2062 /* TheMovieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DDFAE62519FF0B004A2062 /* TheMovieTests.swift */; };
 		24DDFAF22519FF0B004A2062 /* TheMovieUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DDFAF12519FF0B004A2062 /* TheMovieUITests.swift */; };
+		24DDFB012519FF52004A2062 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 24DDFB002519FF52004A2062 /* Alamofire */; };
+		24DDFB042519FF85004A2062 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 24DDFB032519FF85004A2062 /* SwiftyJSON */; };
+		24DDFB07251A04DD004A2062 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DDFB06251A04DD004A2062 /* APIManager.swift */; };
+		24DDFB09251A055B004A2062 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DDFB08251A055B004A2062 /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +40,6 @@
 /* Begin PBXFileReference section */
 		24DDFACC2519FF09004A2062 /* TheMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24DDFACF2519FF09004A2062 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		24DDFAD12519FF09004A2062 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		24DDFAD32519FF09004A2062 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		24DDFAD62519FF09004A2062 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		24DDFAD82519FF0B004A2062 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +51,8 @@
 		24DDFAED2519FF0B004A2062 /* TheMovieUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheMovieUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		24DDFAF12519FF0B004A2062 /* TheMovieUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMovieUITests.swift; sourceTree = "<group>"; };
 		24DDFAF32519FF0B004A2062 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24DDFB06251A04DD004A2062 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		24DDFB08251A055B004A2062 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24DDFB042519FF85004A2062 /* SwiftyJSON in Frameworks */,
+				24DDFB012519FF52004A2062 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,13 +105,14 @@
 		24DDFACE2519FF09004A2062 /* TheMovie */ = {
 			isa = PBXGroup;
 			children = (
+				24DDFB05251A04D1004A2062 /* APIManager */,
 				24DDFACF2519FF09004A2062 /* AppDelegate.swift */,
-				24DDFAD12519FF09004A2062 /* SceneDelegate.swift */,
 				24DDFAD32519FF09004A2062 /* ViewController.swift */,
 				24DDFAD52519FF09004A2062 /* Main.storyboard */,
 				24DDFAD82519FF0B004A2062 /* Assets.xcassets */,
 				24DDFADA2519FF0B004A2062 /* LaunchScreen.storyboard */,
 				24DDFADD2519FF0B004A2062 /* Info.plist */,
+				24DDFB08251A055B004A2062 /* Model.swift */,
 			);
 			path = TheMovie;
 			sourceTree = "<group>";
@@ -128,6 +135,14 @@
 			path = TheMovieUITests;
 			sourceTree = "<group>";
 		};
+		24DDFB05251A04D1004A2062 /* APIManager */ = {
+			isa = PBXGroup;
+			children = (
+				24DDFB06251A04DD004A2062 /* APIManager.swift */,
+			);
+			path = APIManager;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -144,6 +159,10 @@
 			dependencies = (
 			);
 			name = TheMovie;
+			packageProductDependencies = (
+				24DDFB002519FF52004A2062 /* Alamofire */,
+				24DDFB032519FF85004A2062 /* SwiftyJSON */,
+			);
 			productName = TheMovie;
 			productReference = 24DDFACC2519FF09004A2062 /* TheMovie.app */;
 			productType = "com.apple.product-type.application";
@@ -216,6 +235,10 @@
 				Base,
 			);
 			mainGroup = 24DDFAC32519FF09004A2062;
+			packageReferences = (
+				24DDFAFF2519FF52004A2062 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				24DDFB022519FF85004A2062 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+			);
 			productRefGroup = 24DDFACD2519FF09004A2062 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -259,9 +282,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24DDFB07251A04DD004A2062 /* APIManager.swift in Sources */,
 				24DDFAD42519FF09004A2062 /* ViewController.swift in Sources */,
 				24DDFAD02519FF09004A2062 /* AppDelegate.swift in Sources */,
-				24DDFAD22519FF09004A2062 /* SceneDelegate.swift in Sources */,
+				24DDFB09251A055B004A2062 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -590,6 +614,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		24DDFAFF2519FF52004A2062 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.2.2;
+			};
+		};
+		24DDFB022519FF85004A2062 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		24DDFB002519FF52004A2062 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 24DDFAFF2519FF52004A2062 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		24DDFB032519FF85004A2062 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 24DDFB022519FF85004A2062 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 24DDFAC42519FF09004A2062 /* Project object */;
 }
