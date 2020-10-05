@@ -13,7 +13,7 @@
         <!--Collection-->
         <scene sceneID="ZsU-D4-xkz">
             <objects>
-                <viewController id="8GN-DQ-sPw" sceneMemberID="viewController">
+                <viewController id="8GN-DQ-sPw" customClass="CollectionViewController" customModule="TheMovie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uId-YD-5Fq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -28,7 +28,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="u3e-G6-wMv">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionViewCell" id="u3e-G6-wMv" customClass="CollectionViewCell" customModule="TheMovie" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="184" height="351"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="IgX-yJ-O86">
@@ -48,13 +48,13 @@
                                                         <constraint firstAttribute="height" constant="20" id="iQk-A5-2W8"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GKu-KB-3Jy">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="GKu-KB-3Jy">
                                                     <rect key="frame" x="5" y="267" width="174" height="24"/>
                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1위 (7.98) / 35.5%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rf9-qx-kjx">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1위 (7.98) / 35.5%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Rf9-qx-kjx">
                                                     <rect key="frame" x="5" y="296" width="174" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -86,6 +86,11 @@
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="184" height="351"/>
                                         <connections>
+                                            <outlet property="gradeImageView" destination="qrW-ju-0Ea" id="lHX-h5-lf3"/>
+                                            <outlet property="infoLabel" destination="Rf9-qx-kjx" id="pX1-Ks-wvC"/>
+                                            <outlet property="openDateLabel" destination="o3s-6D-6U1" id="76s-t5-d9Y"/>
+                                            <outlet property="thumbnail" destination="CnT-jq-qb3" id="SPb-ds-hLv"/>
+                                            <outlet property="titleLabel" destination="GKu-KB-3Jy" id="e11-Sv-i37"/>
                                             <segue destination="bSh-oR-jNu" kind="show" id="lxw-hk-lZj"/>
                                         </connections>
                                     </collectionViewCell>
@@ -102,6 +107,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Collection" image="ic_collection" id="3Yy-H3-IUZ"/>
+                    <connections>
+                        <outlet property="collectionView" destination="OIz-e4-RrF" id="53B-xH-NtJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sKU-Rs-yjd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -123,10 +131,10 @@
             </objects>
             <point key="canvasLocation" x="1906" y="1168"/>
         </scene>
-        <!--Table-->
+        <!--Title-->
         <scene sceneID="KF7-dz-LQz">
             <objects>
-                <viewController id="ApH-1w-zT6" sceneMemberID="viewController">
+                <viewController id="ApH-1w-zT6" customClass="TableViewController" customModule="TheMovie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ga3-F7-Df5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -135,7 +143,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="128" id="t6C-rp-gUf">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TableViewCell" rowHeight="128" id="t6C-rp-gUf" customClass="TableViewCell" customModule="TheMovie" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="128"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="t6C-rp-gUf" id="tFq-Hh-6Mr">
@@ -160,7 +168,7 @@
                                                         <constraint firstAttribute="width" secondItem="On5-wo-tTN" secondAttribute="height" id="Jch-vp-wvI"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="평점 : 7.98  예매순위 : 2  예매율 : 12.63" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Evx-om-Uvj">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="평점 : 7.98  예매순위 : 2  예매율 : 12.63" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Evx-om-Uvj">
                                                     <rect key="frame" x="93" y="55" width="291" height="19.5"/>
                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="16"/>
                                                     <nil key="textColor"/>
@@ -191,18 +199,16 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="gradeImageView" destination="On5-wo-tTN" id="sFN-ZL-CUf"/>
+                                            <outlet property="infoLabel" destination="Evx-om-Uvj" id="9NT-K7-cAw"/>
+                                            <outlet property="openDateLabel" destination="pVJ-8c-DDq" id="lb3-UK-2Jh"/>
+                                            <outlet property="thumbnail" destination="qy5-zY-pYE" id="FZB-Zs-PFp"/>
+                                            <outlet property="titleLabel" destination="P7Y-4Y-KJa" id="O5D-as-GCO"/>
                                             <segue destination="bSh-oR-jNu" kind="show" id="jZs-77-VXI"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Gp-Lv-UqH">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Title" id="qtT-PZ-wDF"/>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ktG-mD-JGj"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -214,6 +220,11 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Table" image="ic_list" id="CT4-Go-egx"/>
+                    <navigationItem key="navigationItem" title="Title" id="3lm-Ec-2aX"/>
+                    <connections>
+                        <outlet property="naviBar" destination="3lm-Ec-2aX" id="RIE-sZ-Lsd"/>
+                        <outlet property="tableView" destination="gfY-Ic-EPM" id="ANE-e1-HcW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pwR-lr-3Le" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -222,10 +233,12 @@
         <!--Navigation Controller-->
         <scene sceneID="wFr-dS-y0u">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tg7-aT-Tdp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController id="lS1-xg-gQq" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="WWz-iR-4kG">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.33725490196078434" green="0.41960784313725491" blue="0.76862745098039209" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -235,15 +248,21 @@
                         <segue destination="PUM-gK-e0c" kind="relationship" relationship="rootViewController" id="r27-ab-fYO"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Tg7-aT-Tdp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="929" y="-362"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ifh-e4-rrW">
             <objects>
-                <tabBarController id="PUM-gK-e0c" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="7Tc-eY-hoV"/>
+                <tabBarController id="PUM-gK-e0c" customClass="TabBarController" customModule="TheMovie" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="7Tc-eY-hoV">
+                        <barButtonItem key="rightBarButtonItem" image="ic_settings" id="j9z-No-aVX">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="settingAction:" destination="PUM-gK-e0c" id="9nw-d3-C1t"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gbi-hT-mG2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -263,12 +282,14 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="jZs-77-VXI"/>
+        <segue reference="lxw-hk-lZj"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="ic_12" width="20" height="20"/>
         <image name="ic_collection" width="25" height="25"/>
         <image name="ic_list" width="24" height="24"/>
+        <image name="ic_settings" width="24" height="24"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
