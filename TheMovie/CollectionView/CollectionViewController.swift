@@ -17,11 +17,11 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
         // Do any additional setup after loading the view.
         if MovieData.shared.movieList.count < 1 {
             MovieData.shared.set {
-                self.collectionView.reloadData()
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
             }
         }
-        
-        MovieData.shared.movieReloadHandler = { self.collectionView.reloadData() }
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -35,7 +35,20 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        collectionView.reloadData()
+        self.navigationItem.title = MovieData.shared.sortOpt.rawValue
+        MovieData.shared.movieReloadHandler = { self.collectionView.reloadData() }
+        MovieData.shared.titleHandler = { title in self.navigationItem.title = title }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let vc = segue.destination as? DetailViewController else { return }
+        guard let cell = sender as? CollectionViewCell else { return }
+        
+        let backItem = UIBarButtonItem()
+        backItem.title = "영화목록"
+        navigationItem.backBarButtonItem = backItem
+        
+        vc.id = cell.id
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -52,9 +65,12 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
         cell.titleLabel.text        = movie.title
         cell.infoLabel.text         = "\(movie.reservationGrade)위 (\(movie.userRate)) / \(movie.reservationRate)%"
         cell.openDateLabel.text     = "\(movie.date.toString())"
-        cell.setGrade(grade: movie.grade)
+        cell.gradeImageView.image   = Util.setGrade(movie.grade)
         
         return cell
+    }
+    @IBAction func settingAction(_ sender: Any) {
+        Util.settingAction(vc: self)
     }
 }
 
@@ -78,16 +94,4 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var openDateLabel: UILabel!
     @IBOutlet weak var gradeImageView: UIImageView!
-    
-    func setGrade(grade: Int) {
-        if grade == 12 {
-            gradeImageView.image = UIImage(named: "ic_12")
-        } else if grade == 15 {
-            gradeImageView.image = UIImage(named: "ic_15")
-        } else if grade == 19 {
-            gradeImageView.image = UIImage(named: "ic_19")
-        } else {
-            gradeImageView.image = UIImage(named: "ic_allages")
-        }
-    }
 }

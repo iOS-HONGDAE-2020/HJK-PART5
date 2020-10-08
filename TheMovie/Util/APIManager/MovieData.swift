@@ -41,7 +41,7 @@ class MovieData {
     
     func set(completion: (()->Void)? = nil) {
         formatter.dateFormat = "yyyy-MM-dd"
-        APIManager.shared.getMovies(order: .reservationRate, completion: {
+        APIManager.getMovies(order: .reservationRate, completion: {
             result in
             self.movieList = result
             self.sortOpt = .date

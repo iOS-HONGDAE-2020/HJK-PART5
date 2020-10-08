@@ -18,11 +18,11 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         // Do any additional setup after loading the view.
         if MovieData.shared.movieList.count < 1 {
             MovieData.shared.set {
-                self.tableView.reloadData()
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
             }
         }
-        
-        MovieData.shared.movieReloadHandler = { self.tableView.reloadData() }
         
         tableView.dataSource    = self
         tableView.delegate      = self
@@ -30,8 +30,22 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+
+        self.navigationItem.title = MovieData.shared.sortOpt.rawValue
         
-        tableView.reloadData()
+        MovieData.shared.movieReloadHandler = { self.tableView.reloadData() }
+        MovieData.shared.titleHandler = { title in self.navigationItem.title = title }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let vc = segue.destination as? DetailViewController else { return }
+        guard let cell = sender as? TableViewCell else { return }
+        
+        let backItem = UIBarButtonItem()
+        backItem.title = "영화목록"
+        navigationItem.backBarButtonItem = backItem
+        
+        vc.id = cell.id
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -49,9 +63,12 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         cell.titleLabel.text        = movie.title
         cell.infoLabel.text         = "평점 : \(movie.userRate)  예매순위 : \(movie.reservationGrade)  예매율 : \(movie.reservationRate)"
         cell.openDateLabel.text     = "개봉일 : \(movie.date.toString())"
-        cell.setGrade(grade: movie.grade)
+        cell.gradeImageView.image   = Util.setGrade(movie.grade)
         
         return cell
+    }
+    @IBAction func settingAction(_ sender: Any) {
+        Util.settingAction(vc: self)
     }
 }
 
@@ -79,16 +96,4 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var openDateLabel: UILabel!
     @IBOutlet weak var gradeImageView: UIImageView!
-    
-    func setGrade(grade: Int) {
-        if grade == 12 {
-            gradeImageView.image = UIImage(named: "ic_12")
-        } else if grade == 15 {
-            gradeImageView.image = UIImage(named: "ic_15")
-        } else if grade == 19 {
-            gradeImageView.image = UIImage(named: "ic_19")
-        } else {
-            gradeImageView.image = UIImage(named: "ic_allages")
-        }
-    }
 }
