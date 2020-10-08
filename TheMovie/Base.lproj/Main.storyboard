@@ -176,7 +176,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EJm-ku-UZf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="815" y="1368"/>
+            <point key="canvasLocation" x="1158" y="1367"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="O4R-oV-nRf">
@@ -574,11 +574,62 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="2dU-FT-Pdq" id="WKF-bh-FE5"/>
+                        <segue destination="q0r-HA-oSM" kind="show" identifier="commentWrite" id="vrx-e0-GsF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YDo-Z0-B6i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1895.625" y="1366.9014084507041"/>
+            <point key="canvasLocation" x="1930" y="1367"/>
+        </scene>
+        <!--Comment Write View Controller-->
+        <scene sceneID="dya-dj-RFE">
+            <objects>
+                <tableViewController id="q0r-HA-oSM" customClass="CommentWriteViewController" customModule="TheMovie" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="WkZ-9p-ONw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="0RA-X7-Obu">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="155" id="oLo-nu-4qE">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="155"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oLo-nu-4qE" id="46O-x6-nQR">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="155"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="1U2-KR-12V">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="KNw-7W-mKb">
+                                        <rect key="frame" x="0.0" y="239" width="414" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KNw-7W-mKb" id="HKv-pe-cMG">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="q0r-HA-oSM" id="I0h-2b-GiA"/>
+                            <outlet property="delegate" destination="q0r-HA-oSM" id="BxV-t1-tah"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="yv2-Rn-Q3K">
+                        <barButtonItem key="leftBarButtonItem" title="취소" id="L2j-iO-YCx">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="완료" id="UjN-rv-xdF"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hx1-od-d9B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2666.666666666667" y="1366.7410714285713"/>
         </scene>
         <!--Table-->
         <scene sceneID="KF7-dz-LQz">

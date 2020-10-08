@@ -32,7 +32,16 @@ class DetailViewController: UIViewController {
             })
         }
     }
+    @IBAction func commentWriteAction(_ sender: Any) {
+        performSegue(withIdentifier: "commentWrite", sender: sender)
+    }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let vc = segue.destination as? CommentWriteViewController else { return }
+        guard let movie = movie else { return }
+        vc.movieId      = movie.id
+        vc.movieTitle   = movie.title
+    }
     
 }
 
@@ -80,10 +89,14 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
                 button.setTitle("", for: .normal)
                 button.setImage(UIImage(named: "btn_compose"), for: .normal)
                 
+                button.addTarget(self, action: #selector(commentWriteAction(_:)), for: .touchUpInside)
+                
                 view.addSubview(button)
             }
         }
     }
+    
+    
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if      section == 1 { return "줄거리" }
@@ -165,9 +178,6 @@ class MovieInfoCell: UITableViewCell {
         vc.posterImage = thumbImageView.image
         
         UIApplication.topViewController()?.present(vc, animated: true)
-        
-        // vc.present(topController, animated: true, completion: nil)
-        
     }
 }
 
